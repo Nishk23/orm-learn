@@ -14,18 +14,17 @@ import com.cognizant.ormlearn.services.CountryService;
 import com.cognizant.ormlearn.services.exception.CountryNotFoundException;
 
 @Service()
+@Transactional
 public class CountryServiceImpl implements CountryService {
 
 	@Autowired
 	private CountryRepository countryRepository;
 
-	@Transactional
 	public List<Country> getAllCountries() {
 
 		return countryRepository.findAll();
 	}
 
-	@Transactional
 	public Country findCountryByCode(String countryCode) throws CountryNotFoundException {
 
 		Optional<Country> result = countryRepository.findById(countryCode);
@@ -38,17 +37,27 @@ public class CountryServiceImpl implements CountryService {
 	}
 
 	@Override
-	@Transactional
 	public void addCountry(Country country) {
 
 		countryRepository.save(country);
 	}
 
 	@Override
-	@Transactional
 	public void deleteCountry(String code) {
 
 		countryRepository.deleteById(code);
+	}
+
+	@Override
+	public List<Country> findCountryByCharacter(String name) {
+
+		return countryRepository.findByCustomQuery(name);
+	}
+
+	@Override
+	public List<Country> findCountryUsingSingleCharacter(String name) {
+
+		return countryRepository.findWithSingleCharacter(name);
 	}
 
 }

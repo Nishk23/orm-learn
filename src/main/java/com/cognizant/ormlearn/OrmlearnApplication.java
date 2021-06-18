@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,12 +18,15 @@ public class OrmlearnApplication {
 
 	private static final Logger logger = LoggerFactory.getLogger(OrmlearnApplication.class);
 
+	@Autowired
+	private CountryService countryService;
+
 	public static void main(String[] args) {
 		SpringApplication.run(OrmlearnApplication.class, args);
 	}
 
 	@Bean
-	CommandLineRunner getAllCountries(CountryService countryService) {
+	CommandLineRunner getAllCountries() {
 		return args -> {
 			logger.info("START...");
 			List<Country> countries = countryService.getAllCountries();
@@ -32,7 +36,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner addCountry(CountryService countryService) {
+	CommandLineRunner addCountry() {
 		return args -> {
 			logger.info("START...");
 			countryService.addCountry(new Country("AB", "Arab"));
@@ -41,7 +45,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner findCountryByCode(CountryService countryService) {
+	CommandLineRunner findCountryByCode() {
 		return args -> {
 			logger.info("START...");
 			Country country = countryService.findCountryByCode("AB");
@@ -51,10 +55,28 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner deleteCountryByCode(CountryService countryService) {
+	CommandLineRunner deleteCountryByCode() {
 		return args -> {
 			logger.info("START...");
 			countryService.deleteCountry("AB");
+			logger.info("END...");
+		};
+	}
+
+	@Bean
+	CommandLineRunner findByCharacters() {
+		return args -> {
+			logger.info("START...By Character");
+			countryService.findCountryByCharacter("ou").forEach(c -> logger.info("{}", c));
+			logger.info("END...");
+		};
+	}
+	
+	@Bean
+	CommandLineRunner findUsingSingleCharacter() {
+		return args -> {
+			logger.info("START...By Character");
+			countryService.findCountryUsingSingleCharacter("A").forEach(c -> logger.info("{}", c));
 			logger.info("END...");
 		};
 	}

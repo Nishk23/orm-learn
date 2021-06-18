@@ -7,11 +7,15 @@ import com.cognizant.ormlearn.services.exception.CountryNotFoundException;
 
 public interface CountryService {
 
-	public List<Country> getAllCountries();
+	List<Country> getAllCountries();
 
-	public Country findCountryByCode(String countryCode) throws CountryNotFoundException;
+	Country findCountryByCode(String countryCode) throws CountryNotFoundException;
 
-	public void addCountry(Country country);
+	void addCountry(Country country);
 
-	public void deleteCountry(String code);
+	void deleteCountry(String code);
+
+	List<Country> findCountryByCharacter(String name);
+
+	List<Country> findCountryUsingSingleCharacter(String name);
 }
