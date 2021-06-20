@@ -57,7 +57,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner addCountry() {
+	CommandLineRunner testAddCountry() {
 		return args -> {
 			logger.info("START...");
 			countryService.addCountry(new Country("AB", "Arab"));
@@ -66,7 +66,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner findCountryByCode() {
+	CommandLineRunner testFindCountryByCode() {
 		return args -> {
 			logger.info("START...");
 			Country country = countryService.findCountryByCode("AB");
@@ -76,7 +76,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner deleteCountryByCode() {
+	CommandLineRunner testDeleteCountryByCode() {
 		return args -> {
 			logger.info("START...");
 			countryService.deleteCountry("AB");
@@ -85,7 +85,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner findByCharacters() {
+	CommandLineRunner testFindByCharacters() {
 		return args -> {
 			logger.info("START...By Character");
 			countryService.findCountryByCharacter("ou").forEach(c -> logger.info("{}", c));
@@ -94,7 +94,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner findUsingSingleCharacter() {
+	CommandLineRunner testFindUsingSingleCharacter() {
 		return args -> {
 			logger.info("START...By Character");
 			countryService.findCountryUsingSingleCharacter("A").forEach(c -> logger.info("{}", c));
@@ -103,7 +103,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner getAllStockDetailsTest() {
+	CommandLineRunner testGetAllStockDetails() {
 		return args -> {
 			logger.info("START... for getAllStockDetails");
 			stockService.getAllStockDetails().forEach(c -> logger.info("{}", c));
@@ -112,7 +112,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner findStockUsingCodeTest() {
+	CommandLineRunner testFindStockUsingCode() {
 		return args -> {
 			logger.info("START... for findStockUsingCode");
 			stockService.findStockUsingCode("GOOGL").forEach(c -> logger.info("{}", c));
@@ -121,7 +121,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner findFBStockInSep19Test() {
+	CommandLineRunner testFindFBStockInSep19() {
 		return args -> {
 			logger.info("START... for findFBStockInSep19");
 			List<Stock> stockInSep19 = stockService.findFBStockInSep19("FB",
@@ -133,7 +133,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner findGoogleStockGreaterThan1250Test() {
+	CommandLineRunner testFindGoogleStockGreaterThan1250() {
 		return args -> {
 			logger.info("START... for findGoogleStockGreaterThan1250");
 			stockService.findGoogleStockGreaterThan1250("GOOGL", 1250).forEach(c -> logger.info("{}", c));
@@ -142,7 +142,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner findTop3VolumeStockTest() {
+	CommandLineRunner testFindTop3VolumeStock() {
 		return args -> {
 			logger.info("START... for findTop3VolumeStock");
 			stockService.findTop3VolumeStock().forEach(c -> logger.info("{}", c));
@@ -151,7 +151,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner findLowest3NetflixStocksTest() {
+	CommandLineRunner testFindLowest3NetflixStocks() {
 		return args -> {
 			logger.info("START... for findLowest3NetflixStocks");
 			stockService.findLowest3NetflixStocks("NFLX").forEach(c -> logger.info("{}", c));
@@ -160,7 +160,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner findEmployeeTest() {
+	CommandLineRunner testFindEmployee() {
 		return args -> {
 			logger.info("START... for Employee");
 			Employee employee = employeeService.findEmployee(1);
@@ -170,7 +170,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner findDepartmentTest() {
+	CommandLineRunner testFindDepartment() {
 		return args -> {
 			logger.info("START... for Department");
 			Department department = departmentService.findDepartment(1);
@@ -180,7 +180,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner findSkillTest() {
+	CommandLineRunner testFindSkill() {
 		return args -> {
 			logger.info("START... for Skill");
 			Skill skill = skillService.findSkill(2);
@@ -217,7 +217,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner updateAddEmployee() {
+	CommandLineRunner testUpdateEmployee() {
 		return args -> {
 			logger.info("START... for Update Employee");
 			Employee employee = employeeService.findEmployee(11);
@@ -230,7 +230,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner deleteEmployee() {
+	CommandLineRunner testDeleteEmployee() {
 		return args -> {
 			logger.info("START... for Delete Employee");
 			employeeService.removeEmployee(11);
