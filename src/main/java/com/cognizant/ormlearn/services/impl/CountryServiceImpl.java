@@ -13,7 +13,7 @@ import com.cognizant.ormlearn.repository.CountryRepository;
 import com.cognizant.ormlearn.services.CountryService;
 import com.cognizant.ormlearn.services.exception.CountryNotFoundException;
 
-@Service()
+@Service
 @Transactional
 public class CountryServiceImpl implements CountryService {
 

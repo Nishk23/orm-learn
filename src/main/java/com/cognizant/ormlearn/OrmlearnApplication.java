@@ -1,5 +1,6 @@
 package com.cognizant.ormlearn;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -11,7 +12,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import com.cognizant.ormlearn.model.Country;
+import com.cognizant.ormlearn.model.Department;
+import com.cognizant.ormlearn.model.Employee;
+import com.cognizant.ormlearn.model.Skill;
+import com.cognizant.ormlearn.model.Stock;
 import com.cognizant.ormlearn.services.CountryService;
+import com.cognizant.ormlearn.services.DepartmentService;
+import com.cognizant.ormlearn.services.EmployeeService;
+import com.cognizant.ormlearn.services.SkillService;
+import com.cognizant.ormlearn.services.StockService;
 
 @SpringBootApplication
 public class OrmlearnApplication {
@@ -20,6 +29,18 @@ public class OrmlearnApplication {
 
 	@Autowired
 	private CountryService countryService;
+
+	@Autowired
+	private StockService stockService;
+
+	@Autowired
+	private EmployeeService employeeService;
+
+	@Autowired
+	private DepartmentService departmentService;
+
+	@Autowired
+	private SkillService skillService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(OrmlearnApplication.class, args);
@@ -62,7 +83,7 @@ public class OrmlearnApplication {
 			logger.info("END...");
 		};
 	}
-
+//
 	@Bean
 	CommandLineRunner findByCharacters() {
 		return args -> {
@@ -71,7 +92,7 @@ public class OrmlearnApplication {
 			logger.info("END...");
 		};
 	}
-	
+//
 	@Bean
 	CommandLineRunner findUsingSingleCharacter() {
 		return args -> {
@@ -81,4 +102,165 @@ public class OrmlearnApplication {
 		};
 	}
 
+	
+
+	@Bean
+	CommandLineRunner getAllStockDetailsTest() {
+		return args -> {
+			logger.info("START... for getAllStockDetails");
+			stockService.getAllStockDetails().forEach(c -> logger.info("{}", c));
+			logger.info("END... for getAllStockDetails");
+		};
+	}
+
+	@Bean
+	CommandLineRunner findStockUsingCodeTest() {
+		return args -> {
+			logger.info("START... for findStockUsingCode");
+			stockService.findStockUsingCode("GOOGL").forEach(c -> logger.info("{}", c));
+			logger.info("END... for findStockUsingCode");
+		};
+	}
+
+	@Bean
+	CommandLineRunner findFBStockInSep19Test() {
+		return args -> {
+			logger.info("START... for findFBStockInSep19");
+			List<Stock> stockInSep19 = stockService.findFBStockInSep19("FB",
+					new SimpleDateFormat("yyyy-MM-dd").parse("2019-09-01"),
+					new SimpleDateFormat("yyyy-MM-dd").parse("2019-09-30"));
+			stockInSep19.forEach(c -> logger.info("{}", c));
+			logger.info("END... for findFBStockInSep19");
+		};
+	}
+
+	@Bean
+	CommandLineRunner findGoogleStockGreaterThan1250Test() {
+		return args -> {
+			logger.info("START... for findGoogleStockGreaterThan1250");
+			stockService.findGoogleStockGreaterThan1250("GOOGL", 1250).forEach(c -> logger.info("{}", c));
+			logger.info("END... for findGoogleStockGreaterThan1250");
+		};
+	}
+
+	@Bean
+	CommandLineRunner findTop3VolumeStockTest() {
+		return args -> {
+			logger.info("START... for findTop3VolumeStock");
+			stockService.findTop3VolumeStock().forEach(c -> logger.info("{}", c));
+			logger.info("END... for findTop3VolumeStock");
+		};
+	}
+
+	@Bean
+	CommandLineRunner findLowest3NetflixStocksTest() {
+		return args -> {
+			logger.info("START... for findLowest3NetflixStocks");
+			stockService.findLowest3NetflixStocks("NFLX").forEach(c -> logger.info("{}", c));
+			logger.info("END... for findLowest3NetflixStocks");
+		};
+	}
+
+	@Bean
+	CommandLineRunner findEmployeeTest() {
+		return args -> {
+			logger.info("START... for Employee");
+			Employee employee = employeeService.findEmployee(1);
+			logger.info("Employee Details -> {}", employee);
+			logger.info("END... for Employee");
+		};
+	}
+
+	@Bean
+	CommandLineRunner findDepartmentTest() {
+		return args -> {
+			logger.info("START... for Department");
+			Department department = departmentService.findDepartment(1);
+			logger.info("Department Details -> {}", department);
+			logger.info("END... for Department");
+		};
+	}
+
+	@Bean
+	CommandLineRunner findSkillTest() {
+		return args -> {
+			logger.info("START... for Skill");
+			Skill skill = skillService.findSkill(2);
+			logger.info("Skill Details -> {}", skill);
+			logger.info("END... for Skill");
+		};
+	}
+
+	@Bean
+	CommandLineRunner testGetEmployee() {
+		return args -> {
+			logger.info("START... for Get Employee");
+			Employee employee = employeeService.findEmployee(2);
+			logger.debug("Employee -> {}", employee);
+			logger.debug("Department -> {}", employee.getDepartment());
+			logger.debug("Skills -> {}", employee.getSkillList());
+			logger.info("END... Get Employee");
+		};
+	}
+
+	@Bean
+	CommandLineRunner testAddEmployee() {
+		return args -> {
+			logger.info("START... for Add Employee");
+			Employee.builder().name("Nishanth").salary(500000.00).permanent(true)
+					.dateOfBirth(new SimpleDateFormat("yyyy-MM-dd").parse("2019-09-01")).build();
+			Department department = departmentService.findDepartment(3);
+			Employee employee = Employee.builder().name("Nithin").salary(700000.00).permanent(true)
+					.dateOfBirth(new SimpleDateFormat("yyyy-MM-dd").parse("1993-07-02")).department(department).build();
+			employeeService.saveEmployee(employee);
+			logger.info("Employee Details -> {}", employee);
+			logger.info("END... for Add Employee");
+		};
+	}
+
+	@Bean
+	CommandLineRunner updateAddEmployee() {
+		return args -> {
+			logger.info("START... for Update Employee");
+			Employee employee = employeeService.findEmployee(11);
+			Department department = departmentService.findDepartment(1);
+			employee.setDepartment(department);
+			employeeService.saveEmployee(employee);
+			logger.info("Employee Details -> {}", employee);
+			logger.info("END... for Update Employee");
+		};
+	}
+
+	@Bean
+	CommandLineRunner deleteEmployee() {
+		return args -> {
+			logger.info("START... for Delete Employee");
+			employeeService.removeEmployee(2);
+			logger.info("END... for Delete Employee");
+		};
+	}
+	
+	@Bean
+	CommandLineRunner testGetDepartment() {
+		return args -> {
+			logger.info("START... for Get Department");
+			Department department = departmentService.findDepartment(1);
+			logger.info("Department -> {}", department);
+			logger.info("Employee List -> {}", department.getEmployeeList());
+			logger.info("END... for Get Department");
+		};
+	}
+	
+	@Bean
+	CommandLineRunner testAddSkillToEmployee() {
+		return args -> {
+			logger.info("START... for Add Skill To Employee");
+			Employee employee = employeeService.findEmployee(1);
+			Skill skill = skillService.findSkill(3);
+			employee.getSkillList().add(skill);
+			employeeService.saveEmployee(employee);
+			logger.info("END... for Add Skill To Employee");
+		};
+	}
+	
 }
