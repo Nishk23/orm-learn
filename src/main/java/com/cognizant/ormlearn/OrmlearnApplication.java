@@ -47,7 +47,7 @@ public class OrmlearnApplication {
 	}
 
 	@Bean
-	CommandLineRunner getAllCountries() {
+	CommandLineRunner testGetAllCountries() {
 		return args -> {
 			logger.info("START...");
 			List<Country> countries = countryService.getAllCountries();
