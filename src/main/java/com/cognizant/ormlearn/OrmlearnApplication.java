@@ -83,7 +83,7 @@ public class OrmlearnApplication {
 			logger.info("END...");
 		};
 	}
-//
+
 	@Bean
 	CommandLineRunner findByCharacters() {
 		return args -> {
@@ -92,7 +92,7 @@ public class OrmlearnApplication {
 			logger.info("END...");
 		};
 	}
-//
+
 	@Bean
 	CommandLineRunner findUsingSingleCharacter() {
 		return args -> {
@@ -101,8 +101,6 @@ public class OrmlearnApplication {
 			logger.info("END...");
 		};
 	}
-
-	
 
 	@Bean
 	CommandLineRunner getAllStockDetailsTest() {
@@ -271,6 +269,35 @@ public class OrmlearnApplication {
 			logger.debug("Permanent Employees -> {}", employees);
 			employees.forEach(e -> logger.debug("Skills -> {}", e.getSkillList()));
 			logger.info("END... Permanent Employees");
+		};
+	}
+
+	@Bean
+	CommandLineRunner testGetAverageSalary() {
+		return args -> {
+			logger.info("START... Get Average Salary of Employees");
+			double salary = employeeService.findAverageSalaryofEmployees();
+			logger.info("Average Salary : {}", salary);
+			logger.info("END... Get Average Salary of Employees");
+		};
+	}
+	
+	@Bean
+	CommandLineRunner testGetAverageSalaryBasedOnDeptId() {
+		return args -> {
+			logger.info("START... Get Average Salary based on Dept id");
+			double salary = employeeService.findAverageSalaryBasedOnDeptId(3);
+			logger.info("Average Salary : {}", salary);
+			logger.info("END... Get Average Salary based on Dept id");
+		};
+	}
+
+	@Bean
+	CommandLineRunner testGetAllEmployeesUsingNativeQuery() {
+		return args -> {
+			logger.info("START... All Employees Using Native Query");
+			employeeService.getAllEmployeesUsingNativeQuery().forEach(e -> logger.info("Employees -> {}", e));
+			logger.info("END... All Employees Using Native Query");
 		};
 	}
 

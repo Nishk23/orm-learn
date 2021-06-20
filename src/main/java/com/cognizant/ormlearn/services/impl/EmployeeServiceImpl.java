@@ -42,4 +42,22 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return employeeRepository.getAllPermanentEmployees();
 	}
 
+	@Override
+	public double findAverageSalaryofEmployees() {
+		
+		return employeeRepository.getAverageSalary();
+	}
+
+	@Override
+	public double findAverageSalaryBasedOnDeptId(int id) {
+		
+		return employeeRepository.getAverageSalaryBasedOnDeptId(id);
+	}
+
+	@Override
+	public List<Employee> getAllEmployeesUsingNativeQuery() {
+		
+		return employeeRepository.getAllEmployeesNative();
+	}
+
 }

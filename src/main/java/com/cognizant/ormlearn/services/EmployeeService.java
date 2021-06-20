@@ -13,4 +13,10 @@ public interface EmployeeService {
 	void saveEmployee(Employee employee);
 	
 	List<Employee> findAllPermanentEmployees();
+	
+	double findAverageSalaryofEmployees();
+	
+	double findAverageSalaryBasedOnDeptId(int id);
+	
+	List<Employee> getAllEmployeesUsingNativeQuery(); 
 }
