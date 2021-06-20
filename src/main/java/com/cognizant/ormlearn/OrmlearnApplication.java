@@ -210,7 +210,7 @@ public class OrmlearnApplication {
 			Employee.builder().name("Nishanth").salary(500000.00).permanent(true)
 					.dateOfBirth(new SimpleDateFormat("yyyy-MM-dd").parse("2019-09-01")).build();
 			Department department = departmentService.findDepartment(3);
-			Employee employee = Employee.builder().name("Nithin").salary(700000.00).permanent(true)
+			Employee employee = Employee.builder().name("Nithin").salary(700000.00).permanent(false)
 					.dateOfBirth(new SimpleDateFormat("yyyy-MM-dd").parse("1993-07-02")).department(department).build();
 			employeeService.saveEmployee(employee);
 			logger.info("Employee Details -> {}", employee);
@@ -235,7 +235,7 @@ public class OrmlearnApplication {
 	CommandLineRunner deleteEmployee() {
 		return args -> {
 			logger.info("START... for Delete Employee");
-			employeeService.removeEmployee(2);
+			employeeService.removeEmployee(11);
 			logger.info("END... for Delete Employee");
 		};
 	}
@@ -262,5 +262,16 @@ public class OrmlearnApplication {
 			logger.info("END... for Add Skill To Employee");
 		};
 	}
-	
+
+	@Bean
+	CommandLineRunner testGetAllPermanentEmployees() {
+		return args -> {
+			logger.info("START... Permanent Employees");
+			List<Employee> employees = employeeService.findAllPermanentEmployees();
+			logger.debug("Permanent Employees -> {}", employees);
+			employees.forEach(e -> logger.debug("Skills -> {}", e.getSkillList()));
+			logger.info("END... Permanent Employees");
+		};
+	}
+
 }

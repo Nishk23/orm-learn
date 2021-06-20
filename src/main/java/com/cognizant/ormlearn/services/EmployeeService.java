@@ -1,5 +1,7 @@
 package com.cognizant.ormlearn.services;
 
+import java.util.List;
+
 import com.cognizant.ormlearn.model.Employee;
 
 public interface EmployeeService {
@@ -9,4 +11,6 @@ public interface EmployeeService {
 	void removeEmployee(int id);
 
 	void saveEmployee(Employee employee);
+	
+	List<Employee> findAllPermanentEmployees();
 }

@@ -1,5 +1,7 @@
 package com.cognizant.ormlearn.services.impl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 	public void removeEmployee(int id) {
 		
 		employeeRepository.deleteById(id);
+	}
+
+	@Override
+	public List<Employee> findAllPermanentEmployees() {
+		
+		return employeeRepository.getAllPermanentEmployees();
 	}
 
 }
