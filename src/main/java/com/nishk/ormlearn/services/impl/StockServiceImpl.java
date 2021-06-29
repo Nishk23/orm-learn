@@ -1,4 +1,4 @@
-package com.cognizant.ormlearn.services.impl;
+package com.nishk.ormlearn.services.impl;
 
 import java.util.Date;
 import java.util.List;
@@ -8,9 +8,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cognizant.ormlearn.model.Stock;
-import com.cognizant.ormlearn.repository.StockRepository;
-import com.cognizant.ormlearn.services.StockService;
+import com.nishk.ormlearn.model.Stock;
+import com.nishk.ormlearn.repository.StockRepository;
+import com.nishk.ormlearn.services.StockService;
 
 @Service
 @Transactional

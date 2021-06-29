@@ -1,6 +1,6 @@
-package com.cognizant.ormlearn.services;
+package com.nishk.ormlearn.services;
 
-import com.cognizant.ormlearn.model.Skill;
+import com.nishk.ormlearn.model.Skill;
 
 public interface SkillService {
 

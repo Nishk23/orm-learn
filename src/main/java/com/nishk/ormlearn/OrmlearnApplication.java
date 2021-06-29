@@ -1,4 +1,4 @@
-package com.cognizant.ormlearn;
+package com.nishk.ormlearn;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -11,16 +11,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.cognizant.ormlearn.model.Country;
-import com.cognizant.ormlearn.model.Department;
-import com.cognizant.ormlearn.model.Employee;
-import com.cognizant.ormlearn.model.Skill;
-import com.cognizant.ormlearn.model.Stock;
-import com.cognizant.ormlearn.services.CountryService;
-import com.cognizant.ormlearn.services.DepartmentService;
-import com.cognizant.ormlearn.services.EmployeeService;
-import com.cognizant.ormlearn.services.SkillService;
-import com.cognizant.ormlearn.services.StockService;
+import com.nishk.ormlearn.model.Country;
+import com.nishk.ormlearn.model.Department;
+import com.nishk.ormlearn.model.Employee;
+import com.nishk.ormlearn.model.Skill;
+import com.nishk.ormlearn.model.Stock;
+import com.nishk.ormlearn.services.CountryService;
+import com.nishk.ormlearn.services.DepartmentService;
+import com.nishk.ormlearn.services.EmployeeService;
+import com.nishk.ormlearn.services.SkillService;
+import com.nishk.ormlearn.services.StockService;
 
 @SpringBootApplication
 public class OrmlearnApplication {
@@ -43,6 +43,7 @@ public class OrmlearnApplication {
 	private SkillService skillService;
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(OrmlearnApplication.class, args);
 	}
 
@@ -69,7 +70,7 @@ public class OrmlearnApplication {
 	CommandLineRunner testFindCountryByCode() {
 		return args -> {
 			logger.info("START...");
-			Country country = countryService.findCountryByCode("AB");
+			Country country = countryService.findCountryByCode("CW");
 			logger.debug("Country : {}", country);
 			logger.info("END...");
 		};

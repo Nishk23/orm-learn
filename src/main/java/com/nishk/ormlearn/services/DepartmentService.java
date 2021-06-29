@@ -1,6 +1,6 @@
-package com.cognizant.ormlearn.services;
+package com.nishk.ormlearn.services;
 
-import com.cognizant.ormlearn.model.Department;
+import com.nishk.ormlearn.model.Department;
 
 public interface DepartmentService {
 

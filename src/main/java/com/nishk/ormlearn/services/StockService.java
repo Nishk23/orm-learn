@@ -1,9 +1,9 @@
-package com.cognizant.ormlearn.services;
+package com.nishk.ormlearn.services;
 
 import java.util.Date;
 import java.util.List;
 
-import com.cognizant.ormlearn.model.Stock;
+import com.nishk.ormlearn.model.Stock;
 
 public interface StockService {
 
