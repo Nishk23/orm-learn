@@ -1,4 +1,4 @@
-package com.nishk.ormlearn.repository;
+package com.orm.ormlearn.repository;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.nishk.ormlearn.model.Employee;
+import com.orm.ormlearn.model.Employee;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {

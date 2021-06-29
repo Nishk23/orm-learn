@@ -1,4 +1,4 @@
-package com.nishk.ormlearn.model;
+package com.orm.ormlearn.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

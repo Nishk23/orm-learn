@@ -1,4 +1,4 @@
-package com.nishk.ormlearn.repository;
+package com.orm.ormlearn.repository;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.nishk.ormlearn.model.Country;
+import com.orm.ormlearn.model.Country;
 
 @Repository
 public interface CountryRepository extends JpaRepository<Country, String>{

@@ -1,16 +1,18 @@
-package com.nishk.ormlearn.model;
+package com.orm.ormlearn.model;
 
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -22,22 +24,23 @@ import lombok.ToString;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @AllArgsConstructor
+@Builder
 
 @Entity
-@Table(name = "skill")
-public class Skill {
+@Table(name = "department")
+public class Department {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "sk_id")
+	@Column(name = "dp_id")
 	private int id;
 
 	@NonNull
-	@Column(name = "sk_name")
+	@Column(name = "dp_name")
 	private String name;
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
-	@ManyToMany(mappedBy = "skillList")
+	@OneToMany(mappedBy = "department", fetch = FetchType.EAGER)
 	private List<Employee> employeeList;
 }

@@ -1,4 +1,4 @@
-package com.nishk.ormlearn.services.impl;
+package com.orm.ormlearn.services.impl;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nishk.ormlearn.model.Employee;
-import com.nishk.ormlearn.repository.EmployeeRepository;
-import com.nishk.ormlearn.services.EmployeeService;
+import com.orm.ormlearn.model.Employee;
+import com.orm.ormlearn.repository.EmployeeRepository;
+import com.orm.ormlearn.services.EmployeeService;
 
 @Service
 @Transactional

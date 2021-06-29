@@ -1,13 +1,13 @@
-package com.nishk.ormlearn.services.impl;
+package com.orm.ormlearn.services.impl;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nishk.ormlearn.model.Department;
-import com.nishk.ormlearn.repository.DepartmentRepository;
-import com.nishk.ormlearn.services.DepartmentService;
+import com.orm.ormlearn.model.Department;
+import com.orm.ormlearn.repository.DepartmentRepository;
+import com.orm.ormlearn.services.DepartmentService;
 
 @Service
 @Transactional
