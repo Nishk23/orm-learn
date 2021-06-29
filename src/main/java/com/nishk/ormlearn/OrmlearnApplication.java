@@ -1,4 +1,4 @@
-package com.orm.ormlearn;
+package com.nishk.ormlearn;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -11,16 +11,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.orm.ormlearn.model.Country;
-import com.orm.ormlearn.model.Department;
-import com.orm.ormlearn.model.Employee;
-import com.orm.ormlearn.model.Skill;
-import com.orm.ormlearn.model.Stock;
-import com.orm.ormlearn.services.CountryService;
-import com.orm.ormlearn.services.DepartmentService;
-import com.orm.ormlearn.services.EmployeeService;
-import com.orm.ormlearn.services.SkillService;
-import com.orm.ormlearn.services.StockService;
+import com.nishk.ormlearn.model.Country;
+import com.nishk.ormlearn.model.Department;
+import com.nishk.ormlearn.model.Employee;
+import com.nishk.ormlearn.model.Skill;
+import com.nishk.ormlearn.model.Stock;
+import com.nishk.ormlearn.services.CountryService;
+import com.nishk.ormlearn.services.DepartmentService;
+import com.nishk.ormlearn.services.EmployeeService;
+import com.nishk.ormlearn.services.SkillService;
+import com.nishk.ormlearn.services.StockService;
 
 @SpringBootApplication
 public class OrmlearnApplication {

@@ -1,9 +1,9 @@
-package com.orm.ormlearn.services;
+package com.nishk.ormlearn.services;
 
 import java.util.List;
 
-import com.orm.ormlearn.model.Country;
-import com.orm.ormlearn.services.exception.CountryNotFoundException;
+import com.nishk.ormlearn.model.Country;
+import com.nishk.ormlearn.services.exception.CountryNotFoundException;
 
 public interface CountryService {
 

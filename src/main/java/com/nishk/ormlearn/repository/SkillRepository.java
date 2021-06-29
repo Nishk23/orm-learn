@@ -1,9 +1,9 @@
-package com.orm.ormlearn.repository;
+package com.nishk.ormlearn.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.orm.ormlearn.model.Skill;
+import com.nishk.ormlearn.model.Skill;
 
 @Repository
 public interface SkillRepository extends JpaRepository<Skill, Integer> {

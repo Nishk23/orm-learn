@@ -1,8 +1,8 @@
-package com.orm.ormlearn.services;
+package com.nishk.ormlearn.services;
 
 import java.util.List;
 
-import com.orm.ormlearn.model.Employee;
+import com.nishk.ormlearn.model.Employee;
 
 public interface EmployeeService {
 

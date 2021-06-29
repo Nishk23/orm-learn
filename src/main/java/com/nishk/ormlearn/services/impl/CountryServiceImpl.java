@@ -1,4 +1,4 @@
-package com.orm.ormlearn.services.impl;
+package com.nishk.ormlearn.services.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -8,10 +8,10 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.orm.ormlearn.model.Country;
-import com.orm.ormlearn.repository.CountryRepository;
-import com.orm.ormlearn.services.CountryService;
-import com.orm.ormlearn.services.exception.CountryNotFoundException;
+import com.nishk.ormlearn.model.Country;
+import com.nishk.ormlearn.repository.CountryRepository;
+import com.nishk.ormlearn.services.CountryService;
+import com.nishk.ormlearn.services.exception.CountryNotFoundException;
 
 @Service
 @Transactional

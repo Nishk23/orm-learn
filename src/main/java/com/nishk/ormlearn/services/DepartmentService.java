@@ -1,6 +1,6 @@
-package com.orm.ormlearn.services;
+package com.nishk.ormlearn.services;
 
-import com.orm.ormlearn.model.Department;
+import com.nishk.ormlearn.model.Department;
 
 public interface DepartmentService {
 

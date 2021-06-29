@@ -1,4 +1,4 @@
-package com.orm.ormlearn.services.exception;
+package com.nishk.ormlearn.services.exception;
 
 public class CountryNotFoundException extends Exception {
 

@@ -1,4 +1,4 @@
-package com.orm.ormlearn.model;
+package com.nishk.ormlearn.model;
 
 import java.util.Date;
 import java.util.Set;
